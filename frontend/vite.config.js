@@ -6,9 +6,9 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://banking-website-t0to.onrender.com',
         changeOrigin: true,
-        secure: false
+        secure: true
       }
     }
   }
