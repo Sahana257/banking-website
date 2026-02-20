@@ -15,7 +15,7 @@ export default function Login() {
     setError('')
     setLoading(true)
     try {
-      await axios.post('https://bank-backend-yoie.onrender.com/api/login', form, { withCredentials: true })
+      await axios.post('https://bank-backend-yoie.onrender.com/api/auth/login', form, { withCredentials: true })
       navigate('/dashboard')
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed.')

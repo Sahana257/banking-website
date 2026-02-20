@@ -17,8 +17,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Routes
-app.use('/api', authRoutes);
-app.use('/api', balanceRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/balance', balanceRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
