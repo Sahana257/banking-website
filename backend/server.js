@@ -11,10 +11,7 @@ const app = express();
 
 // ✅ CORS FIX (IMPORTANT)
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://banking-website-eight.vercel.app"
-  ],
+  origin: true,
   credentials: true
 }));
 
