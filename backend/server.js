@@ -9,7 +9,7 @@ const balanceRoutes = require('./routes/balance');
 
 const app = express();
 
-// Middleware
+// ✅ CORS FIX (IMPORTANT)
 app.use(cors({
   origin: [
     "http://localhost:5173",
@@ -17,6 +17,7 @@ app.use(cors({
   ],
   credentials: true
 }));
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -29,13 +30,20 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'Kodbank API is running 🚀' });
 });
 
+// Root route (to avoid "Cannot GET /")
+app.get('/', (req, res) => {
+  res.send("Kodbank Backend Running 🚀");
+});
+
 const PORT = process.env.PORT || 5000;
 
-initDB().then(() => {
-  app.listen(PORT, () => {
-    console.log(`🏦 Kodbank backend running on http://localhost:${PORT}`);
+initDB()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`🏦 Kodbank backend running on port ${PORT}`);
+    });
+  })
+  .catch(err => {
+    console.error('Failed to initialize database:', err);
+    process.exit(1);
   });
-}).catch(err => {
-  console.error('Failed to initialize database:', err);
-  process.exit(1);
-});
