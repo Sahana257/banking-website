@@ -17,7 +17,7 @@ export default function Register() {
     setError('')
     setLoading(true)
     try {
-      const res = await axios.post('https://bank-backend-yoie.onrender.com/api/auth/register', form)
+      const res = await axios.post('https://banking-website-t0to.onrender.com/api/auth/register', form)
       setMessage(res.data.message)
       setTimeout(() => navigate('/login'), 1500)
     } catch (err) {

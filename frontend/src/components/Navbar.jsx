@@ -7,7 +7,7 @@ export default function Navbar({ showAuth = false }) {
 
   const handleLogout = async () => {
     try {
-      await axios.post('https://bank-backend-yoie.onrender.com/api/auth/logout', {}, { withCredentials: true })
+      await axios.post('https://banking-website-t0to.onrender.com/api/auth/logout', {}, { withCredentials: true })
     } catch {
       // ignore errors — still navigate away
     }

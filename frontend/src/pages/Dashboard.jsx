@@ -43,7 +43,7 @@ export default function Dashboard() {
   const [confetti, setConfetti] = useState(false)
 
   useEffect(() => {
-    axios.post('https://bank-backend-yoie.onrender.com/api/balance/getBalance', {}, { withCredentials: true })
+    axios.post('https://banking-website-t0to.onrender.com/api/balance/getBalance', {}, { withCredentials: true })
       .then(res => setUsername(res.data.username))
       .catch(err => { if (err.response?.status === 401) navigate('/login') })
   }, [navigate])
@@ -54,7 +54,7 @@ export default function Dashboard() {
     setBalance(null)
     setConfetti(false)
     try {
-      const res = await axios.post('https://bank-backend-yoie.onrender.com/api/balance/getBalance', {}, { withCredentials: true })
+      const res = await axios.post('https://banking-website-t0to.onrender.com/api/balance/getBalance', {}, { withCredentials: true })
       setBalance(res.data.balance)
       setConfetti(true)
       setTimeout(() => setConfetti(false), 3500)
